@@ -27,7 +27,7 @@ pyautogui.click(1180, 193)
 time.sleep(1)
 pyautogui.click(1354, 379)
 time.sleep(2)
-pyautogui.click(516,507)
+pyautogui.click(442,81)
 time.sleep(1)
 # Press 'Ctrl + V' to paste the clipboard content
 pyautogui.hotkey('ctrl', 'v')
