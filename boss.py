@@ -26,7 +26,7 @@ if __name__ == "__main__":
     # Step 2: Press Tab 19 times and type the Docker command
     for _ in range(19):
         pyautogui.press("tab")
-    pyautogui.write("docker run -p 6500:80 dorowu/ubuntu-desktop-lxde-vnc")
+    pyautogui.write("docker run -p 6300:80 --restart unless-stopped dorowu/ubuntu-desktop-lxde-vnc")
     time.sleep(5)
     pyautogui.press("enter")
     print("Docker command typed and executed.")
