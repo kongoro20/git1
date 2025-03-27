@@ -28,3 +28,22 @@ pip install requests
 
 # Output completion message
 echo "All packages installed and environment set up successfully."
+
+# Add supervisor configuration
+echo "[program:start_script]
+command=/bin/bash -c \"cd /root/git1 && bash restart.sh\"
+directory=/root
+autostart=true
+autorestart=true
+startsecs=10
+stderr_logfile=/root/start_err.log
+stdout_logfile=/root/start_out.log
+environment=DISPLAY=:1" | sudo tee /etc/supervisor/conf.d/start.conf > /dev/null
+
+# Check if supervisor configuration was added successfully
+if [ $? -eq 0 ]; then
+    echo "Supervisor configuration successfully added."
+else
+    echo "Failed to add supervisor configuration."
+    exit 1
+fi
