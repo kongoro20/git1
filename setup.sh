@@ -9,13 +9,13 @@ sudo apt -y --fix-broken install
 sudo apt update
 
 # Install Firefox and required packages
-sudo apt install -y firefox wmctrl xdotool zip curl jq xclip unzip git python3-dev python3-tk python3-pip gnome-screenshot python3.8-venv
+sudo apt install -y firefox wmctrl xdotool zip curl jq xclip unzip git python3-dev python3-tk python3-pip gnome-screenshot python3.8-venv supervisor
 
 # Create Python virtual environment
-python3 -m venv myenv
+python3 -m venv /root/fullgit/myenv
 
 # Activate the virtual environment
-source myenv/bin/activate
+source /root/fullgit/myenv/bin/activate
 
 # Ensure .Xauthority file is created
 touch ~/.Xauthority
@@ -29,16 +29,16 @@ pip install requests
 # Output completion message
 echo "All packages installed and environment set up successfully."
 
-# Add supervisor configuration
-echo "[program:start_script]
+# Add Supervisor configuration
+echo "[program:restart_script]
 command=/bin/bash -c \"cd /root/git1 && bash restart.sh\"
-directory=/root
+directory=/root/git1
 autostart=true
 autorestart=true
 startsecs=10
-stderr_logfile=/root/start_err.log
-stdout_logfile=/root/start_out.log
-environment=DISPLAY=:1" | sudo tee /etc/supervisor/conf.d/start.conf > /dev/null
+stderr_logfile=/root/restart_err.log
+stdout_logfile=/root/restart_out.log
+environment=DISPLAY=:1" | sudo tee /etc/supervisor/conf.d/restart.conf > /dev/null
 
 # Check if supervisor configuration was added successfully
 if [ $? -eq 0 ]; then
