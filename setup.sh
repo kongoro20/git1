@@ -34,7 +34,7 @@ echo "[program:restart_script]
 command=/bin/bash -c \"cd /root/git1 && bash restart.sh\"
 directory=/root/git1
 autostart=true
-autorestart=true
+autorestart=false
 startsecs=10
 stderr_logfile=/root/restart_err.log
 stdout_logfile=/root/restart_out.log
