@@ -89,6 +89,20 @@ time.sleep(0.7)
 pyautogui.press("enter")
 time.sleep(random.uniform(6, 8))
 
+try:
+    copilot_button_location = pyautogui.locateCenterOnScreen('copilot_button.png', confidence=0.8)
+    if tab_button_location is not None:
+        print("Copilot button detected, clicking at (1310, 172)...")
+        click_at(1310, 172)
+        time.sleep(1.5)
+    else:
+        print("Copilot button not detected, proceeding to Step 1...")
+except Exception as e:
+    print(f"Error detecting copilot button: {e}")
+    print("Proceeding to Step 1...")
+
+time.sleep(2)
+
 # Here you will incorporate sign detection button
 try:
     sign_button_location = pyautogui.locateCenterOnScreen('sign_button.png', confidence=0.8)
