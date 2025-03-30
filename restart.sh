@@ -1,10 +1,17 @@
 #!/bin/bash
 
+# Start Xvfb if it's not already running
+if ! pgrep -x "Xvfb" > /dev/null; then
+    echo "Starting Xvfb..."
+    Xvfb :1 -screen 0 1366x768x16 &
+    sleep 2
+fi
+
+# Activate the environment and set necessary variables
 sleep 1
-source /root/git1/myenv/bin/activate  # Explicit path for consistency
-export DISPLAY=:1  # Ensure DISPLAY is set
+source /root/git1/myenv/bin/activate  # Explicit path to myenv
+export DISPLAY=:1  # Ensures Firefox uses the correct display
 export XAUTHORITY=/root/.Xauthority  # Ensure X server access
-sleep 3
 
 for i in {1..500}; do
     echo "Running refresh.sh - Attempt $i" >> /root/restart_out.log
