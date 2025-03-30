@@ -13,6 +13,12 @@ source /root/git1/myenv/bin/activate  # Explicit path to myenv
 export DISPLAY=:1  # Ensures Firefox uses the correct display
 export XAUTHORITY=/root/.Xauthority  # Ensure X server access
 
+# Wait for Xvfb to initialize
+sleep 2
+
+LOG_OUT="/root/restart_out.log"
+LOG_ERR="/root/restart_err.log"
+
 for i in {1..500}; do
     echo "Running refresh.sh - Attempt $i" >> /root/restart_out.log
     bash refresh.sh
