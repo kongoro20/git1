@@ -15,7 +15,7 @@ sudo apt install -y firefox wmctrl xvfb xdotool zip curl jq xclip unzip git pyth
 python3 -m venv /root/fullgit/myenv
 
 # Activate the virtual environment
-source /root/fullgit/myenv/bin/activate
+source /root/git1/myenv/bin/activate
 
 # Ensure .Xauthority file is created
 touch ~/.Xauthority
