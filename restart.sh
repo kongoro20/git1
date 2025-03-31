@@ -3,7 +3,7 @@
 # Start Xvfb if it's not already running
 if ! pgrep -x "Xvfb" > /dev/null; then
     echo "Starting Xvfb..."
-    Xvfb :1 -screen 0 1366x768x16 &
+    Xvfb :1 -screen 0 1366x641x16 &
     sleep 2
 fi
 
