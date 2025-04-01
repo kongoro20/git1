@@ -91,7 +91,7 @@ time.sleep(random.uniform(6, 8))
 
 try:
     copilot_button_location = pyautogui.locateCenterOnScreen('copilot_button.png', confidence=0.8)
-    if tab_button_location is not None:
+    if copilot_button_location is not None:
         print("Copilot button detected, clicking at (1310, 172)...")
         click_at(1310, 172)
         time.sleep(1.5)
