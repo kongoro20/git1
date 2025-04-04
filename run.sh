@@ -49,7 +49,7 @@ sleep 3
 for i in {1..500}; do
     echo "Running refresh.sh - Attempt $i"
     bash refresh.sh
-    sleep 1800
+    sleep 890
     # Check if the script exited with an error
     if [ $? -ne 0 ]; then
         echo "refresh.sh failed at attempt $i" >&2
