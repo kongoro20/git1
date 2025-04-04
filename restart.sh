@@ -22,7 +22,7 @@ LOG_ERR="/root/restart_err.log"
 for i in {1..500}; do
     echo "Running refresh.sh - Attempt $i" >> /root/restart_out.log
     bash refresh.sh
-    sleep 1800  # 30 minutes
+    sleep 890  # 30 minutes
     # Check if the script exited with an error
     if [ $? -ne 0 ]; then
         echo "refresh.sh failed at attempt $i" | tee -a /root/restart_err.log
